@@ -1,3 +1,3 @@
-Changes:
--site name removed
--added dynamic background
+Changes:  
+-site name removed  
+-added dynamic background  
