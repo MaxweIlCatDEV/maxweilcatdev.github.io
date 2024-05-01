@@ -201,6 +201,7 @@
   
 
   <script>
+    //javascipt for dinyamic background
     const now = new Date();
     var hours = now.getHours();
     if (hours >= 23) {
@@ -230,15 +231,26 @@
     if (hours == 22) {
       var image = 'set3';
       }
-    var backimage = "images/" + image + '.jpg';
+    const backimage = "images/" + image + '.jpg';
     document.addEventListener("DOMContentLoaded", function() {
       document.body.style.cssText=`background-image:url(${backimage})`;
     });
+    //javascript to dynamic music
+    if (image == 'night') {
+      var paudio = "media/night.mp3";
+    }
+    if (image == 'day1' || image == 'day2' || image == 'set1' || image == 'set2' || image == 'set3') {
+      var paudio = "media/dayset.mp3";
+    }
+    if (image == 'rise1' || image == 'rise2') {
+      var paudio = "media/rise.mp3";
+    }
     // JavaScript to handle the click event on the overlay
     const overlay = document.getElementById('overlay');
     overlay.addEventListener('click', function() {
       // Play the music
-      const audio = document.getElementById('background-music');
+      const audio = new Audio(`${paudio}`);
+      audio.loop = true
       audio.play();
       
       // Add the fade-out class to trigger the fade-out animation
